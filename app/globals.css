@@ -1,0 +1,197 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
+@import url("https://fonts.cdnfonts.com/css/bossa");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Fluent Brand Colors */
+  --blue: #3700ff;
+  --pink: #ff8fda;
+  --jonquil: #fecd07;
+  --murrey: #8b0142;
+  --spring-green: #32fe6b;
+  --forest-green: #064401;
+  --cyan: #49eded;
+  --midnight-green: #004e4e;
+  --black: #000000;
+  --dark-grey: #0b0b0b;
+  --white: #ffffff;
+
+  /* Fluent Gradients */
+  --mystic-bloom: linear-gradient(135deg, #ff8fda 0%, #3700ff 100%);
+  --electric-meadow: linear-gradient(135deg, #cef564 0%, #3700ff 100%);
+  --golden-sunrise: linear-gradient(135deg, #fe6901 0%, #fecd07 100%);
+  --floral-spring: linear-gradient(135deg, #32fe6b 0%, #ff8fda 100%);
+  --rose-velvet: linear-gradient(135deg, #8d0042 0%, #ff8fda 100%);
+  --aurora-pulse: linear-gradient(135deg, #501fff 0%, #32fe6b 100%);
+  --emerald-shadow: linear-gradient(135deg, #32fe6b 0%, #064400 100%);
+  --celestial-glow: linear-gradient(135deg, #4e1fa0, #ff7b69 100%);
+}
+
+body {
+  font-family: "Bossa", sans-serif;
+  color: var(--white);
+}
+
+.gradient-text {
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.mystic-bloom-bg {
+  background: var(--mystic-bloom);
+}
+
+.electric-meadow-bg {
+  background: var(--electric-meadow);
+}
+
+.golden-sunrise-bg {
+  background: var(--golden-sunrise);
+}
+
+.aurora-pulse-bg {
+  background: var(--aurora-pulse);
+}
+
+.fluent-button {
+  background: var(--mystic-bloom);
+  color: white;
+  font-weight: 600;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.fluent-button:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.fluent-button:disabled {
+  background: var(--dark-grey);
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.fluent-card {
+  background-color: rgba(11, 11, 11, 0.8);
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  /* Removed border */
+}
+
+.fluent-gradient-border {
+  position: relative;
+  border-radius: 12px;
+  padding: 1px;
+  background: var(--mystic-bloom);
+}
+
+.fluent-gradient-border > div {
+  background-color: rgba(0, 0, 0, 0.8);
+  border-radius: 11px;
+}
+
+.dice-container {
+  background: rgba(11, 11, 11, 0.8);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  /* Removed border */
+}
+
+.game-board-container {
+  position: relative;
+  overflow: visible; /* Changed from hidden to visible */
+  border-radius: 12px;
+  z-index: 10;
+  /* Removed border */
+}
+
+.game-board-container::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: var(--mystic-bloom);
+  z-index: -1;
+  border-radius: 14px;
+}
+
+.transaction-panel {
+  background-color: rgba(0, 0, 0, 0.9);
+  backdrop-filter: blur(10px);
+  /* Removed border */
+}
+
+/* Game layout fixes */
+.game-board-container {
+  position: relative;
+  z-index: 0;
+  max-width: 100%;
+  overflow: visible; /* Changed from hidden to visible */
+}
+
+@media (min-width: 768px) {
+  .game-board-container {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+}
+
+/* Animation for modal */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.3s ease-out forwards;
+}
+
+/* Custom player section styling */
+.player-setup-card {
+  background-color: rgba(0, 0, 0, 0.9);
+  border-radius: 12px;
+  overflow: hidden;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.player-setup-header {
+  background: var(--mystic-bloom);
+  height: 8px;
+  width: 100%;
+}
+
+.color-option {
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.color-option:hover {
+  transform: scale(1.05);
+}
+
+.color-option.selected {
+  box-shadow: 0 0 0 2px white;
+}
